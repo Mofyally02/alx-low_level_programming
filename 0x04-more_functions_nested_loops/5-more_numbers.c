@@ -1,36 +1,22 @@
 #include "main.h"
 
 /**
- * print_number - prints an integer.
- * @n: the tnteger
- * Return: Void
+ * more_numbers - prints 0 - 14 ten times
+ * Return: void
  */
 
-void print_number(int n)
+void more_numbers(void)
 {
-	unsigned int m, d, count;
+	int i, j;
 
-	if (n < 0)
+	for (i = 1; i <= 10; i++)
 	{
-		_putchar(45);
-		m = n * -1;
-	}
-	else
-	{
-		m = n;
-	}
-
-	d = m;
-	count = 1;
-
-	while (d > 9)
-	{
-		d /= 10;
-		count *= 10;
-	}
-
-	for (; count >= 1; count /= 10)
-	{
-		_putchar(((m / count) % 10) + 48);
+		for (j = 0; j <= 14; j++)
+		{
+			if (j >= 10)
+				_putchar('1');
+			_putchar(j % 10 + '0');
+		}
+		_putchar('\n');
 	}
 }
