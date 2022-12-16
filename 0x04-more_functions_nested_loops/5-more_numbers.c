@@ -1,27 +1,36 @@
 #include "main.h"
 
 /**
- * more_numbers - prints 10 times the numbers, from 0 to 14
- * followed by a new line
+ * print_number - prints an integer.
+ * @n: the tnteger
+ * Return: Void
  */
-void more_numbers(void)
-{
-	char n, c;
-	int i = 0;
 
-	while (i < 10)
+void print_number(int n)
+{
+	unsigned int m, d, count;
+
+	if (n < 0)
 	{
-		for (n = 0; n <= 14; n++)
-		{
-			c = n;
-			if (n > 9)
-			{
-				_putchar('1');
-				c = n % 10;
-			}
-			_putchar('0' + c);
-		}
-		_putchar('0' + c);
-		i++;
+		_putchar(45);
+		m = n * -1;
+	}
+	else
+	{
+		m = n;
+	}
+
+	d = m;
+	count = 1;
+
+	while (d > 9)
+	{
+		d /= 10;
+		count *= 10;
+	}
+
+	for (; count >= 1; count /= 10)
+	{
+		_putchar(((m / count) % 10) + 48);
 	}
 }
