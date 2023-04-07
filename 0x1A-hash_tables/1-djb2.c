@@ -1,7 +1,5 @@
 #include "hash_tables.h"
 #include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 
 usigned long int hash_djb2(const unsigned char *str)
 {

@@ -1,7 +1,5 @@
 #include "hash_tables.h"
 #include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
 
 /**
  * key_index - Returns the index of a key
