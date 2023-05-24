@@ -10,3 +10,4 @@ all: school
 
 clean:
     rm -f *.o school
+
