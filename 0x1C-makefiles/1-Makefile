@@ -1,18 +1,8 @@
-# Makefile for school executable with CC and SRC as the variables
-# CC - the compiler to be used
-# SR - the .c files
-
 CC = gcc
-SRC = main.c student.c 
+SRC = main.c school.c
+OBJ = $(SRC:%.c=%.o)
+NAME = school
 
-school: $(SRC:.c=.o)
-    $(CC) $(SRC:.c=.o) -o school
-
-%.o: %.c
-    $(CC) -c $<
-
-all: school
-
-clean:
-    rm -f *.o school
+all: $(OBJ)
+	$(CC) $^ -o $(NAME)
 
