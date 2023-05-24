@@ -1,34 +1,28 @@
 #!/usr/bin/python3
-"""island_perimeter module"""
+"""Defines the island perimeter measuring function."""
 
 
 def island_perimeter(grid):
-    """Returns the perimeter of the island described in grid.
+    """Returns the perimiter of an island.
+
+    The grid represents water with 0 and land with 1.
 
     Args:
-        grid (list): List of list of integers.
-
-    Grid specifics:
-        0 -> represents a water zone.
-        1 -> represents a land zone.
-        One cell is a square with side length 1.
-        cells are connected horizontally or vertically (not diagonally).
-        It is rectangular and width and height should not exceed 100.
-        Completely surrounded by water and there is one island (or nothing).
-        The island doesn't have 'lakes'.
-
+        grid (list): A list of list of integers representing an island.
     Returns:
-        Perimeter of the island described by grid.
+        The perimeter of the island defined in grid.
     """
-    land_cells = 0
-    common_edges = 0
+    width = len(grid[0])
+    height = len(grid)
+    edges = 0
+    size = 0
 
-    for i, vector in enumerate(grid):
-        for j, cell in enumerate(vector):
-            if cell:
-                land_cells += 1
-                if (i > 0 and grid[i - 1][j] == 1):  # Chec above cell.
-                    common_edges += 1
-                if j > 0 and vector[j - 1] == 1:  # Check left cell.
-                    common_edges += 1
-    return land_cells * 4 - common_edges * 2
+    for i in range(height):
+        for j in range(width):
+            if grid[i][j] == 1:
+                size += 1
+                if (j > 0 and grid[i][j - 1] == 1):
+                    edges += 1
+                if (i > 0 and grid[i - 1][j] == 1):
+                    edges += 1
+    return size * 4 - edges * 2
