@@ -1,0 +1,17 @@
+# Makefile for school executable
+school: main.o student.o teacher.o
+    gcc main.o student.o teacher.o -o school
+
+main.o: main.c
+    gcc -c main.c
+
+student.o: student.c
+    gcc -c student.c
+
+teacher.o: teacher.c
+    gcc -c teacher.c
+
+all: school
+
+clean:
+    rm -f *.o school
